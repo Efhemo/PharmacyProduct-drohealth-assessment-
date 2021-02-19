@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmacy_product/data/dart.dart';
 import 'package:pharmacy_product/ui/config/palette.dart';
+import 'package:pharmacy_product/ui/widgets/widgets.dart';
+
 
 class ProductBagScreen extends StatefulWidget {
 
@@ -19,6 +22,7 @@ class _ProductBagScreenState extends State<ProductBagScreen> {
         builder: (BuildContext context, scrollController) {
           return Container(
             child: SingleChildScrollView(
+              physics: ClampingScrollPhysics(),
               controller: scrollController,
               child: Column(
                 children: [
@@ -71,16 +75,18 @@ class _ProductBagScreenState extends State<ProductBagScreen> {
                     color: Palette.darkPurple,
                     height: MediaQuery.of(context).size.height * 0.7,
                     child: ListView.builder(
-                      itemCount: 25,
+                      itemCount: products.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return ListTile(
-                            title: Text('Bag $index', style: TextStyle(color: Colors.black54),));
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: BagItem(productItem: products[index]),
+                        );
                       },
                     ),
                   ),
                   Container(
                       color: Palette.darkPurple,
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(30.0),
                   child: Column(
                     children: [
                       Row(
