@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pharmacy_product/ui/model/product_item.dart';
+import 'package:pharmacy_product/ui/screens/product_details.dart';
 import 'package:pharmacy_product/ui/screens/screens.dart';
 
 void main() {
@@ -37,6 +39,13 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),
+      onGenerateRoute: (RouteSettings settings){
+        var routes = <String, WidgetBuilder>{
+          '/productDetails': (context) => ProductDetails(settings.arguments as ProductItem),
+        };
+        WidgetBuilder builder = routes[settings.name];
+        return MaterialPageRoute(builder: (ctx) => builder(ctx));
+      },
     );
   }
 }

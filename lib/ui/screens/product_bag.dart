@@ -45,10 +45,10 @@ class _ProductBagScreenState extends State<ProductBagScreen> {
                           width: 40.0,
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 12.0),
+                          margin: EdgeInsets.only(top: 30.0),
                           child: Row(
                             children: [
-                              Image.asset("assets/icons/shopping_bag.png", height: 25.0, width: 25.0,color: Colors.white,),
+                              Image.asset("assets/icons/shopping_bag.png", height: 25.0, width: 25.0,color: Colors.white),
                               SizedBox(width: 10.0),
                               Text("Bag", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold )),
                               Expanded(child: SizedBox()),

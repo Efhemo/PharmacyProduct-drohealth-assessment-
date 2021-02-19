@@ -51,7 +51,11 @@ class HomeScreen extends StatelessWidget {
                     final item = products[index];
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: ProductCard(productItem: item),
+                      child: ProductCard(
+                          productItem: item,
+                          onTap: (product) => Navigator.pushNamed(
+                              context, "/productDetails",
+                              arguments: product)),
                     );
                   }, childCount: products.length),
                 ),
