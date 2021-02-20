@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:pharmacy_product/data/dart.dart';
 import 'package:pharmacy_product/ui/model/product_item.dart';
+import 'package:pharmacy_product/viewmodels/product_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 class BagItem extends StatefulWidget {
   final ProductItem productItem;
@@ -35,7 +38,7 @@ class _BagItemState extends State<BagItem> {
                   radius: 28.0,
                 ),
                 SizedBox(width: 10.0),
-                Text("1x", style: TextStyle(color: Colors.white)),
+                Text("${widget.productItem.quantity}x", style: TextStyle(color: Colors.white)),
                 SizedBox(width: 12.0),
                 Expanded(
                   child: Column(
@@ -49,7 +52,7 @@ class _BagItemState extends State<BagItem> {
                     ],
                   ),
                 ),
-                Text("₦${widget.productItem.price}",
+                Text("₦${widget.productItem.totalPrice()}",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -62,11 +65,15 @@ class _BagItemState extends State<BagItem> {
             children: [
               IconButton(icon: Icon(MdiIcons.deleteOutline, color: Colors.white, size: 30.0), onPressed: (){}, padding: EdgeInsets.symmetric(vertical: 30.0)),
               Expanded(child: SizedBox()),
-              CircleAvatar(backgroundColor: Colors.white, child: IconButton(icon: Icon(MdiIcons.minus), color: Colors.white, onPressed: null)),
+              CircleAvatar(backgroundColor: Colors.white, child: IconButton(icon: Icon(MdiIcons.minus, color: Colors.grey[500]), color: Colors.white, onPressed: (){
+                Provider.of<ProductViewModel>(context, listen: false).modifyItemInBag(false, widget.productItem.productId);
+              })),
               SizedBox(width: 12.0),
-              Text("2", style: TextStyle(color: Colors.white)),
+              Text(widget.productItem.quantity.toString(), style: TextStyle(color: Colors.white)),
               SizedBox(width: 12.0),
-              CircleAvatar(backgroundColor: Colors.white, child: IconButton(icon: Icon(MdiIcons.plus), color: Colors.white, onPressed: null)),
+              CircleAvatar(backgroundColor: Colors.white, child: IconButton(icon: Icon(MdiIcons.plus, color: Colors.grey[500]), color: Colors.white, onPressed: (){
+                Provider.of<ProductViewModel>(context, listen: false).modifyItemInBag(true, widget.productItem.productId);
+              })),
             ],
           ): SizedBox()
         ],

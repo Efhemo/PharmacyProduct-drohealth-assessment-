@@ -10,6 +10,7 @@ class CircleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      elevation: 0.0,
       onPressed: onTap,
       fillColor: Colors.grey[100],
       child: Icon(

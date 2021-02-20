@@ -11,7 +11,7 @@ final List<ProductItem> products = [
       packSize: '3x10',
       constituent: 'cefuroxime',
       dispenseType: 'Packs',
-      productId: 'PKWISM2WM1'
+      productId: 'PROBRYVPW01'
   ),
   ProductItem(
       name: 'Kezitil',
@@ -23,7 +23,7 @@ final List<ProductItem> products = [
       packSize: '3x10',
       constituent: 'cefuroxime',
       dispenseType: 'Packs',
-      productId: 'PKWISM2WM1'
+      productId: 'PROBRYVPW02'
   ),
   ProductItem(
       name: 'Garlic Oil',
@@ -35,7 +35,7 @@ final List<ProductItem> products = [
       packSize: '3x10',
       constituent: 'cefuroxime',
       dispenseType: 'Packs',
-      productId: 'PKWISM2WM1'
+      productId: 'PROBRYVPW03'
   ),
   ProductItem(
       name: 'Folic Acid',
@@ -47,7 +47,7 @@ final List<ProductItem> products = [
       packSize: '3x10',
       constituent: 'cefuroxime',
       dispenseType: 'Packs',
-      productId: 'PKWISM2WM1'
+      productId: 'PROBRYVPW04'
   ),
   ProductItem(
       name: 'Kezitil Susp',
@@ -59,7 +59,7 @@ final List<ProductItem> products = [
       packSize: '3x10',
       constituent: 'cefuroxime',
       dispenseType: 'Packs',
-      productId: 'PKWISM2WM1'
+      productId: 'PROBRYVPW05'
   ),
   ProductItem(
       name: 'Kezitil',
@@ -71,7 +71,7 @@ final List<ProductItem> products = [
       packSize: '3x10',
       constituent: 'cefuroxime',
       dispenseType: 'Packs',
-      productId: 'PKWISM2WM1'
+      productId: 'PROBRYVPW06'
   ),
   ProductItem(
       name: 'Garlic Oil',
@@ -83,7 +83,7 @@ final List<ProductItem> products = [
       packSize: '3x10',
       constituent: 'cefuroxime',
       dispenseType: 'Packs',
-      productId: 'PKWISM2WM1'
+      productId: 'PROBRYVPW07'
   ),
   ProductItem(
       name: 'Folic Acid',
@@ -95,6 +95,6 @@ final List<ProductItem> products = [
       packSize: '3x10',
       constituent: 'cefuroxime',
       dispenseType: 'Packs',
-      productId: 'PKWISM2WM1'
+      productId: 'PROBRYVPW08'
   ),
 ];
