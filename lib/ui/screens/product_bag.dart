@@ -92,7 +92,11 @@ class ProductBagScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text("Total", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0)),
-                              Text("₦6230", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),)
+                              Consumer<ProductViewModel>(
+                                builder: (context, provider, child) {
+                                  return Text("₦${provider.totalPriceOfProductInBag}", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0));
+                                }
+                              )
                             ],
                           ),
                           SizedBox(height: 12.0),

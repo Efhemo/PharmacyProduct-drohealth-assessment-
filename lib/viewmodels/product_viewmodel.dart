@@ -3,8 +3,11 @@ import 'package:pharmacy_product/viewmodels/base_viewmodel.dart';
 
 class ProductViewModel extends BaseViewModel<ProductItem> {
   List<ProductItem> products;
+  List<ProductItem> searchedProducts = List.empty(growable: true);
+
   Map<String, ProductItem> productsInBag = Map();
   ProductItem currentProduct;
+  int totalPriceOfProductInBag = 0;
 
   void setCurrentProduct(String productId) {
     currentProduct = products.firstWhere((element) => productId == element.productId);
@@ -13,6 +16,21 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
   bool isShowSearchBar = false;
 
   ProductViewModel(this.products) {
+    searchedProducts = products;
+    notifyListeners();
+  }
+  
+  void searchQuery(String query){
+    searchedProducts = products.where((element){
+      if (query.isNotEmpty){
+      return element.name.toLowerCase().contains(query.toLowerCase()) ||
+          element.category.toLowerCase().contains(query.toLowerCase()) ||
+          element.constituent.toLowerCase().contains(query.toLowerCase());
+      } else {
+        searchedProducts = products;
+        return true;
+      }
+    }).toList();
     notifyListeners();
   }
 
@@ -24,6 +42,7 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
   void addToBag(int totalQuantity) {
     currentProduct.quantity = totalQuantity;
     productsInBag[currentProduct.productId] = currentProduct;
+    _calculateTotalPriceInBag();
     notifyListeners();
   }
 
@@ -39,12 +58,21 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
       }
       return value;
     });
+    _calculateTotalPriceInBag();
     notifyListeners();
   }
 
   void removeFromBag(String productId){
     productsInBag.removeWhere((key, value) => productId == key);
+    _calculateTotalPriceInBag();
     notifyListeners();
+  }
+
+  void _calculateTotalPriceInBag() {
+    totalPriceOfProductInBag = 0;
+    productsInBag.values.forEach((e) {
+      totalPriceOfProductInBag = totalPriceOfProductInBag + e.totalPrice();
+    });
   }
 
 }
