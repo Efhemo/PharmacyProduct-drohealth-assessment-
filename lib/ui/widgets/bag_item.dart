@@ -16,7 +16,6 @@ class BagItem extends StatefulWidget {
 }
 
 class _BagItemState extends State<BagItem> {
-
   bool isExpanded = false;
 
   @override
@@ -27,7 +26,7 @@ class _BagItemState extends State<BagItem> {
         children: [
           InkWell(
             splashColor: Colors.white,
-            onTap: (){
+            onTap: () {
               setState(() => isExpanded = !isExpanded);
             },
             child: Row(
@@ -38,7 +37,8 @@ class _BagItemState extends State<BagItem> {
                   radius: 28.0,
                 ),
                 SizedBox(width: 10.0),
-                Text("${widget.productItem.quantity}x", style: TextStyle(color: Colors.white)),
+                Text("${widget.productItem.quantity}x",
+                    style: TextStyle(color: Colors.white)),
                 SizedBox(width: 12.0),
                 Expanded(
                   child: Column(
@@ -46,9 +46,11 @@ class _BagItemState extends State<BagItem> {
                     children: [
                       Text(widget.productItem.name,
                           style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w700)),
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700)),
                       Text(widget.productItem.category,
-                          style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 12.0)),
                     ],
                   ),
                 ),
@@ -60,22 +62,48 @@ class _BagItemState extends State<BagItem> {
               ],
             ),
           ),
-          isExpanded ? Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              IconButton(icon: Icon(MdiIcons.deleteOutline, color: Colors.white, size: 30.0), onPressed: (){}, padding: EdgeInsets.symmetric(vertical: 30.0)),
-              Expanded(child: SizedBox()),
-              CircleAvatar(backgroundColor: Colors.white, child: IconButton(icon: Icon(MdiIcons.minus, color: Colors.grey[500]), color: Colors.white, onPressed: (){
-                Provider.of<ProductViewModel>(context, listen: false).modifyItemInBag(false, widget.productItem.productId);
-              })),
-              SizedBox(width: 12.0),
-              Text(widget.productItem.quantity.toString(), style: TextStyle(color: Colors.white)),
-              SizedBox(width: 12.0),
-              CircleAvatar(backgroundColor: Colors.white, child: IconButton(icon: Icon(MdiIcons.plus, color: Colors.grey[500]), color: Colors.white, onPressed: (){
-                Provider.of<ProductViewModel>(context, listen: false).modifyItemInBag(true, widget.productItem.productId);
-              })),
-            ],
-          ): SizedBox()
+          isExpanded
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        icon: Icon(MdiIcons.deleteOutline,
+                            color: Colors.white, size: 30.0),
+                        onPressed: () {
+                          Provider.of<ProductViewModel>(context, listen: false)
+                              .removeFromBag(widget.productItem.productId);
+                        },
+                        padding: EdgeInsets.symmetric(vertical: 30.0)),
+                    Expanded(child: SizedBox()),
+                    CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: IconButton(
+                            icon: Icon(MdiIcons.minus, color: Colors.grey[500]),
+                            color: Colors.white,
+                            onPressed: () {
+                              Provider.of<ProductViewModel>(context,
+                                      listen: false)
+                                  .modifyItemInBag(
+                                      false, widget.productItem.productId);
+                            })),
+                    SizedBox(width: 12.0),
+                    Text(widget.productItem.quantity.toString(),
+                        style: TextStyle(color: Colors.white)),
+                    SizedBox(width: 12.0),
+                    CircleAvatar(
+                        backgroundColor: Colors.white,
+                        child: IconButton(
+                            icon: Icon(MdiIcons.plus, color: Colors.grey[500]),
+                            color: Colors.white,
+                            onPressed: () {
+                              Provider.of<ProductViewModel>(context,
+                                      listen: false)
+                                  .modifyItemInBag(
+                                      true, widget.productItem.productId);
+                            })),
+                  ],
+                )
+              : SizedBox()
         ],
       ),
     );

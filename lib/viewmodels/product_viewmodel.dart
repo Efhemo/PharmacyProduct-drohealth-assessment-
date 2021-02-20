@@ -28,7 +28,6 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
   }
 
   void modifyItemInBag(bool shouldIncrease, String productId) {
-
     productsInBag.update(productId, (value) {
       final quantity = value.quantity;
       if (shouldIncrease) {
@@ -40,6 +39,11 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
       }
       return value;
     });
+    notifyListeners();
+  }
+
+  void removeFromBag(String productId){
+    productsInBag.removeWhere((key, value) => productId == key);
     notifyListeners();
   }
 
