@@ -1,4 +1,4 @@
-import 'package:pharmacy_product/ui/model/product_item.dart';
+import 'package:pharmacy_product/model/product_item.dart';
 import 'package:pharmacy_product/viewmodels/base_viewmodel.dart';
 
 class ProductViewModel extends BaseViewModel<ProductItem> {
@@ -80,8 +80,7 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
   void _calculateTotalPriceInBag() {
     totalPriceOfProductInBag = 0;
     productsInBag.values.forEach((e) {
-      totalPriceOfProductInBag = totalPriceOfProductInBag + e.totalPrice();
+      totalPriceOfProductInBag += e.totalPrice();
     });
   }
-
 }

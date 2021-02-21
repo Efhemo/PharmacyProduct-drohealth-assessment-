@@ -14,13 +14,10 @@ class ProductItem {
 
   ProductItem({this.name, this.image, this.price, this.description, this.category, this.company, this.packSize, this.constituent, this.dispenseType, this.productId});
 
-  set (int totalQuantity) {
-    this.quantity = totalQuantity;
-  }
-
   int totalPrice() => quantity * int.parse(price);
 
   @override
-  List<Object> get props => [this.name, this.image, this.description, this.category];
-
+  String toString() {
+    return 'ProductItem{name: $name, image: $image, price: $price, description: $description, category: $category, company: $company, packSize: $packSize, constituent: $constituent, quantity: $quantity, dispenseType: $dispenseType, productId: $productId}';
+  }
 }

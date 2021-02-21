@@ -73,6 +73,7 @@ class ProductBagScreen extends StatelessWidget {
                         color: Palette.darkPurple,
                         height: MediaQuery.of(context).size.height * 0.69,
                         child: ListView.builder(
+                          controller: scrollController,
                           itemCount: productsInBag.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Padding(

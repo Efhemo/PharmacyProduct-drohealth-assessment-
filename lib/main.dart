@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pharmacy_product/ui/model/product_item.dart';
+import 'package:pharmacy_product/model/product_item.dart';
 import 'package:pharmacy_product/ui/screens/product_details.dart';
 import 'package:pharmacy_product/ui/screens/screens.dart';
 import 'package:pharmacy_product/viewmodels/product_viewmodel.dart';
 import 'package:provider/provider.dart';
-import 'injection_container.dart' as di;
+import 'di/injection_container.dart' as di;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

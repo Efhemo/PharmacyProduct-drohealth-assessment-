@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:pharmacy_product/ui/model/product_item.dart';
+import 'package:pharmacy_product/model/product_item.dart';
 import 'package:pharmacy_product/viewmodels/product_viewmodel.dart';
 import 'package:provider/provider.dart';
 

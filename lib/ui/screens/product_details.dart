@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_product/ui/config/palette.dart';
-import 'package:pharmacy_product/ui/model/product_item.dart';
+import 'package:pharmacy_product/model/product_item.dart';
 import 'package:pharmacy_product/ui/widgets/set_amount_packs.dart';
 import 'package:pharmacy_product/ui/widgets/widgets.dart';
 import 'package:pharmacy_product/viewmodels/product_viewmodel.dart';

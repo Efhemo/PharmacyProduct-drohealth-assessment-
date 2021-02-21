@@ -1,4 +1,4 @@
-import 'package:pharmacy_product/ui/model/product_item.dart';
+import 'package:pharmacy_product/model/product_item.dart';
 
 final List<ProductItem> products = [
   ProductItem(
