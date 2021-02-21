@@ -39,11 +39,12 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
     notifyListeners();
   }
 
-  void addToBag(int totalQuantity) {
+  void addToBag(int totalQuantity, Function(String) showConfirmDialog ) {
     currentProduct.quantity = totalQuantity;
     productsInBag[currentProduct.productId] = currentProduct;
     _calculateTotalPriceInBag();
     notifyListeners();
+    showConfirmDialog(currentProduct.name);
   }
 
   void modifyItemInBag(bool shouldIncrease, String productId) {
