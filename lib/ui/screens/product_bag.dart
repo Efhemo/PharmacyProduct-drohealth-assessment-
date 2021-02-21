@@ -71,7 +71,7 @@ class ProductBagScreen extends StatelessWidget {
                       ),
                       Container(
                         color: Palette.darkPurple,
-                        height: MediaQuery.of(context).size.height * 0.64,
+                        height: MediaQuery.of(context).size.height * 0.69,
                         child: ListView.builder(
                           itemCount: productsInBag.length,
                           itemBuilder: (BuildContext context, int index) {
