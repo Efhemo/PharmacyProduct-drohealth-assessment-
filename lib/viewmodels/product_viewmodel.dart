@@ -8,9 +8,11 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
   Map<String, ProductItem> productsInBag = Map();
   ProductItem currentProduct;
   int totalPriceOfProductInBag = 0;
+  double modalInitSize = 0.12;
 
   void setCurrentProduct(String productId) {
     currentProduct = products.firstWhere((element) => productId == element.productId);
+    modalInitSize = 0.12;
   }
 
   bool isShowSearchBar = false;
@@ -36,6 +38,12 @@ class ProductViewModel extends BaseViewModel<ProductItem> {
 
   void toggleShowSearchbar() {
     isShowSearchBar = !isShowSearchBar;
+    if(!isShowSearchBar){searchQuery("");}
+    notifyListeners();
+  }
+
+  void setModalInitSize(){
+    modalInitSize = 1;
     notifyListeners();
   }
 

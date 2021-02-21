@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -43,7 +42,10 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
               onChanged: (query) => widget.updateSearchQuery(query),
             ),
           ),
-          IconButton(icon: Icon(MdiIcons.close), onPressed: () => _searchQueryController.clear()),
+          IconButton(icon: Icon(MdiIcons.close), onPressed: (){
+            _searchQueryController.clear();
+            widget.updateSearchQuery("");
+          }),
         ],
       )
     );

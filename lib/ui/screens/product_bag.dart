@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmacy_product/data/dart.dart';
 import 'package:pharmacy_product/ui/config/palette.dart';
 import 'package:pharmacy_product/ui/widgets/widgets.dart';
 import 'package:pharmacy_product/viewmodels/product_viewmodel.dart';
@@ -15,7 +14,7 @@ class ProductBagScreen extends StatelessWidget {
         final productsInBag = provider.productsInBag.values.toList();
         return DraggableScrollableActuator(
           child: DraggableScrollableSheet(
-            initialChildSize: 0.12,
+            initialChildSize: provider.modalInitSize,
             minChildSize: 0.12,
             maxChildSize: 1,
             builder: (BuildContext context, scrollController) {
@@ -72,7 +71,7 @@ class ProductBagScreen extends StatelessWidget {
                       ),
                       Container(
                         color: Palette.darkPurple,
-                        height: MediaQuery.of(context).size.height * 0.7,
+                        height: MediaQuery.of(context).size.height * 0.64,
                         child: ListView.builder(
                           itemCount: productsInBag.length,
                           itemBuilder: (BuildContext context, int index) {

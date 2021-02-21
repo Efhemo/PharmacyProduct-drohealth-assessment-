@@ -182,6 +182,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               if (onDone) {
                 Navigator.pop(context);
               } else {
+                Provider.of<ProductViewModel>(context, listen: false).setModalInitSize();
                 Navigator.popUntil(context, (route) => route.isFirst);
               }
             },

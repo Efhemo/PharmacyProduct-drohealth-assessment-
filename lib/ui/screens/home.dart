@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy_product/data/dart.dart';
 import 'package:pharmacy_product/ui/screens/screens.dart';
 import 'package:pharmacy_product/ui/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
