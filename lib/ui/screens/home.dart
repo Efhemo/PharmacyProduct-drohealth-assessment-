@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                   SliverGrid(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 0.9,
+                      childAspectRatio: 0.85,
                       mainAxisSpacing: 4.0,
                     ),
                     delegate: SliverChildBuilderDelegate((context, index) {
@@ -69,6 +69,9 @@ class HomeScreen extends StatelessWidget {
                       );
                     }, childCount: pharmacyProducts.length),
                   ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(height: 85),
+                  )
                 ],
               ),
             );

@@ -44,7 +44,7 @@ class ProductBagScreen extends StatelessWidget {
                               width: 40.0,
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: 50.0),
+                              margin: EdgeInsets.only(top: 20.0),
                               child: Row(
                                 children: [
                                   Image.asset("assets/icons/shopping_bag.png", height: 25.0, width: 25.0,color: Colors.white),

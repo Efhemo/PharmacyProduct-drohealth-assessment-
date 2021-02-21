@@ -48,7 +48,7 @@ class CustomDialogBox extends StatelessWidget {
                   ),
                   SizedBox(height: 24.0),
                   Text(
-                    'Garlic oil has been added to your bag',
+                    '$title has been added to your bag',
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.bold,

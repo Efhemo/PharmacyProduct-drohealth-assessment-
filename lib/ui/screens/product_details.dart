@@ -137,6 +137,16 @@ class _ProductDetailsState extends State<ProductDetails> {
                     SizedBox(height: 25),
                     customListTile("assets/icons/dispense.png", "DISPENSE IN",
                         widget.productItem.dispenseType),
+                    SizedBox(height: 30),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text("1 Pack of Garlic oil contains 3 unit(s) of 10 Tablet(s)",
+                          style: TextStyle(
+                              color: Colors.grey[400],
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12.0)),
+                    ),
+                    SizedBox(height: 35),
                   ],
                 ),
               ),

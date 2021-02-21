@@ -40,6 +40,7 @@ class ProductCard extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold)),
               Text(productItem.category, style: TextStyle(fontSize: 12.0)),
               Text(productItem.description, style: TextStyle(fontSize: 12.0)),
+              SizedBox(height: 8.0),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomRight,
